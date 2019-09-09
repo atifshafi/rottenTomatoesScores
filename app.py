@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objs as go
+from numpy import median
 
 
 def movie_endpoints():
@@ -64,6 +66,23 @@ def scores(endpoints, names):
                      hover_data=["Rating", "Genre", "Directed By", "Written BY", "In Theaters", "On Disc/Streaming",
                                  "Box Office", "Runtime", "Studio"], color="total_score",
                      color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
+
+    #Adding median to the graph
+    median_y = median([int(names[i][1]) for i in range(len(names))])
+    median_x = median([int(names[i][2]) for i in range(len(names))])
+
+    low_x = min([int(names[i][1]) for i in range(len(names))])
+    low_y = min([int(names[i][2]) for i in range(len(names))])
+
+    fig.add_trace(go.Line(x=[low_x-0.5, 100.5], y=[median_x, median_x]))
+    fig.add_trace(go.Line(x=[median_y, median_y], y=[low_y-0.5, 100.5]))
+
+    fig.update_layout(showlegend=False)
+
+    fig.update_traces(marker=dict(size=10,
+                                  line=dict(width=1,
+                                            color='DarkSlateGrey')),
+                      selector=dict(mode='markers'))
     fig.show()
 
 
