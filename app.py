@@ -67,7 +67,7 @@ def scores(endpoints, names):
                                  "Box Office", "Runtime", "Studio"], color="total_score",
                      color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
 
-    #Adding median to the graph
+    # Adding median to the graph
     median_y = median([int(names[i][1]) for i in range(len(names))])
     median_x = median([int(names[i][2]) for i in range(len(names))])
 
@@ -78,7 +78,6 @@ def scores(endpoints, names):
     fig.add_trace(go.Line(x=[median_y, median_y], y=[low_y-0.5, 100.5]))
 
     fig.update_layout(showlegend=False)
-
     fig.update_traces(marker=dict(size=10,
                                   line=dict(width=1,
                                             color='DarkSlateGrey')),
