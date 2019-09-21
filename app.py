@@ -56,16 +56,18 @@ def scores(endpoints, names):
                 pass
 
     # Creating a csv file
-    df = pd.DataFrame(names, columns=['movie_name', 'critic_score', 'audiance_score', 'total_score', 'Rating', 'Genre',
-                                      'Directed By', 'Written BY', 'In Theaters', 'On Disc/Streaming', 'Box Office',
-                                      'Runtime', 'Studio'])
+    df = pd.DataFrame(names, columns=['movie_name', 'critic_score', 'audiance_score',
+                                      'total_score', 'Rating', 'Genre', 'Directed By',
+                                      'Written BY', 'In Theaters', 'On Disc/Streaming',
+                                      'Box Office', 'Runtime', 'Studio'])
     df.to_csv("output.csv", index=False, header=None)
 
     # Plotting a scatter diagram
     fig = px.scatter(df, x="critic_score", y="audiance_score", hover_name="movie_name",
-                     hover_data=["Rating", "Genre", "Directed By", "Written BY", "In Theaters", "On Disc/Streaming",
-                                 "Box Office", "Runtime", "Studio"], color="total_score",
-                     color_continuous_scale=px.colors.sequential.Viridis, render_mode="webgl")
+                     hover_data=["Rating", "Genre", "Directed By", "Written BY", "In Theaters",
+                                 "On Disc/Streaming", "Box Office", "Runtime", "Studio"],
+                     color="total_score", color_continuous_scale=px.colors.sequential.Viridis,
+                     render_mode="webgl")
 
     # Adding median to the graph
     median_y = median([int(names[i][1]) for i in range(len(names))])

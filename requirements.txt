@@ -1,0 +1,7 @@
+requests==2.20.1
+bs4==4.8.0
+plotly==4.1.0
+plotly-express==0.4.1
+pandas==0.25.0
+numpy==1.17.0
+re==2.2.1
