@@ -9,3 +9,6 @@ Please run the requirements.txt file.
 ## Usage
 
 Run app.py
+
+### Snapshot of the graph
+![rotten_tomato_ratings](https://drive.google.com/file/d/1ehau1bfdboINnU5DIn2A5WKircHeGoF5/view?usp=sharing)
