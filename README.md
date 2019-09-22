@@ -11,4 +11,4 @@ Please run the requirements.txt file.
 Run app.py
 
 ### Snapshot of the graph
-![rotten_tomato_ratings](https://drive.google.com/file/d/1dMDnKNwHx1ql9D7gNLodafwHbQevmQ86/view?usp=sharing)
+![rotten_tomato_ratings](https://drive.google.com/uc?export=download&id=1dMDnKNwHx1ql9D7gNLodafwHbQevmQ86)
