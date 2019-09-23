@@ -35,7 +35,8 @@ def movie_endpoints(start_year, end_year):
     names = []
     for year in range(end_year-start_year + 1):
         print(year)
-        result = requests.get("https://www.rottentomatoes.com/top/bestofrt/?year=" + str(start_year + year))
+        result = requests.get("https://www.rottentomatoes.com/top/bestofrt/?year=" +
+                              str(start_year + year))
 
         src = result.content
 
@@ -55,7 +56,8 @@ def movie_endpoints(start_year, end_year):
 
 def scores(endpoints, names):
     for i in range(len(endpoints)):
-        result = requests.get("https://www.rottentomatoes.com/" + endpoints[i])
+        result = requests.get("https://www.rottentomatoes.com/" +
+                              endpoints[i])
         src = result.content
         soup = BeautifulSoup(src, features="html.parser")
 
